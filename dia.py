@@ -65,7 +65,25 @@ submit=st.button('Diagnose...')
 
 if submit:
 
-    llm = GoogleGenerativeAI(model="gemini-pro", google_api_key='AIzaSyCCC9UN48NFIiTv4tTGb2SKR2HRHy93ZXk',safety_settings=safety_settings)
+    llm = GoogleGenerativeAI(model="gemini-pro", google_api_key='AIzaSyCCC9UN48NFIiTv4tTGb2SKR2HRHy93ZXk',
+                             safety_settings=[
+                 {
+                     "category": "HARM_CATEGORY_HARASSMENT",
+                     "threshold": "BLOCK_ONLY_HIGH"
+                 },
+                 {
+                     "category": "HARM_CATEGORY_HATE_SPEECH",
+                     "threshold": "BLOCK_ONLY_HIGH"
+                 },
+                 {
+                     "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                     "threshold": "BLOCK_ONLY_HIGH"
+                 },
+                 {
+                     "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                     "threshold": "BLOCK_ONLY_HIGH"
+                 },
+             ])
 
     prompt = PromptTemplate.from_template(system_prompt)
 
