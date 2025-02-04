@@ -75,27 +75,14 @@ if submit:
 
 
 
-
-    # if chain:
-    #     st.title('Analysis: ')
-    #     ans=chain.invoke({"symptoms": txt})
-    #     if hasarrt(ans,'content'):
-    #       st.write(ans.content)
-    #     else:
-    #       st.write(ans)
-
-
     if chain:
       st.title('Analysis: ')
       ans = chain.invoke({"symptoms": txt})
 
-  
-      # Extract the content properly
-      if hasattr(ans, "content"):  # Check if "content" attribute exists
+      if hasattr(ans, "content"): 
           st.write(ans.content)
       else:
-          st.write(ans)  # Fallback: Show entire response if unexpected format
-
+          st.write(ans) 
 
 
 
