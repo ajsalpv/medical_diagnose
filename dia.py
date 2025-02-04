@@ -79,7 +79,8 @@ if submit:
     if chain:
         st.title('Analysis: ')
         ans=chain.invoke({"symptoms": txt})
-        st.write(ans["content"])
+        report=str(ans["content"])
+        st.write(report)
 
 
 
