@@ -2,6 +2,7 @@ import streamlit as st
 # import google.generativeai as genai
 from langchain.prompts import PromptTemplate
 from langchain_google_genai import GoogleGenerativeAI
+from langchain_groq import ChatGroq
 
 
 
@@ -65,7 +66,8 @@ submit=st.button('Diagnose...')
 
 if submit:
 
-    llm = GoogleGenerativeAI(model="gemini-pro", google_api_key='AIzaSyCCC9UN48NFIiTv4tTGb2SKR2HRHy93ZXk')
+    # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key='AIzaSyCCC9UN48NFIiTv4tTGb2SKR2HRHy93ZXk')
+    llm=ChatGroq(model_name="llama3-8b-8192", groq_api_key="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")
 
     prompt = PromptTemplate.from_template(system_prompt)
 
