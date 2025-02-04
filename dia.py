@@ -1,5 +1,5 @@
 import streamlit as st
-import google.generativeai as genai
+# import google.generativeai as genai
 from langchain.prompts import PromptTemplate
 from langchain_google_genai import GoogleGenerativeAI
 
